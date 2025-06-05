@@ -44,14 +44,12 @@ This backend application pulls wildlife sighting data from the iNaturalist API f
 
 wildlife-tracker/
 ├── app/
-│   ├── main.py               # FastAPI app entry point
-│   └── ...
-├── Dockerfile                # Docker build instructions
-├── docker-compose.yml        # Compose file for development
-├── requirements.txt          # Python dependencies
-├── .env                      # Environment configuration
+│   └── main.py                # FastAPI app entry point
+├── Dockerfile                 # Docker build instructions
+├── docker-compose.yml         # Compose file for development
+├── requirements.txt           # Python dependencies
+├── .env                       # Environment configuration
 └── README.md
-
 ## API Endpoints
 
 - GET `/inat-test`  
