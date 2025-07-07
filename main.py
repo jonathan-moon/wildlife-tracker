@@ -11,20 +11,22 @@ async def get_inaturalist_data(): # creates async function
         data = response.json() # response in JSON form
     if not data["results"]:
         return {"Message" : "No results found"}
-    first = data["results"][0]
-    return {
-        "species_common_name": first.get("taxon", {}).get("preferred_common_name"),
-        "scientific_name": first.get("taxon", {}).get("name"),
-        "observation_id": first.get("id"),
-        "url": first.get("uri"),
-        "latitude": first.get("geojson", {}).get("coordinates", [None, None])[1],
-        "longitude": first.get("geojson", {}).get("coordinates", [None, None])[0],
-        "observed_on": first.get("observed_on_details", {}).get("date"),
-        "description": first.get("description"),
-        "observer": first.get("user", {}).get("login"),
-        "observer_icon": first.get("user", {}).get("icon_url"),
-        "image": first.get("taxon", {}).get("default_photo", {}).get("square_url") or (
-            first.get("photos", [{}])[0].get("url")
-        ),
-        "location_name": first.get("place_guess")
-    }
+    results = data.get("results", [])
+    return {"number_of_results": len(results)}
+    # return {
+    #     "species_common_name": first.get("taxon", {}).get("preferred_common_name"),
+    #     "scientific_name": first.get("taxon", {}).get("name"),
+    #     "observation_id": first.get("id"),
+    #     "url": first.get("uri"),
+    #     "latitude": first.get("geojson", {}).get("coordinates", [None, None])[1],
+    #     "longitude": first.get("geojson", {}).get("coordinates", [None, None])[0],
+    #     "observed_on": first.get("observed_on_details", {}).get("date"),
+    #     "description": first.get("description"),
+    #     "observer": first.get("user", {}).get("login"),
+    #     "observer_icon": first.get("user", {}).get("icon_url"),
+    #     "image": first.get("taxon", {}).get("default_photo", {}).get("square_url") or (
+    #         first.get("photos", [{}])[0].get("url")
+    #     ),
+    #     "location_name": first.get("place_guess")
+    # }
+    return first

@@ -1,3 +1,13 @@
+
+# Notes for dev
+
+For seeding tables: 
+   1. First run scripts/fetch_obs.py to seed yosemite_observations.csv
+   2. Run scripts/extract_and_fetch_taxon_data.py to seed taxon.csv based on sigtings in yosemite_observations
+
+
+
+
 # Wildlife Tracker API
 
 This backend application pulls wildlife sighting data from the iNaturalist API for a specific region. It is built using FastAPI, and is designed to be containerized with Docker for scalable deployment.
@@ -82,3 +92,6 @@ If integrating a database (e.g., PostgreSQL), consider:
   - Clean raw API data
   - Normalize nested structures
   - Insert into database using SQLAlchemy or raw SQL
+
+
+
