@@ -6,6 +6,7 @@ import uuid
 from shapely.geometry import Polygon
 
 # Generate a stable UUID for Yosemite (optional: hardcoded ID)
+# Add additional ids
 YOSEMITE_ID = str(uuid.uuid4())
 
 print("Downloading Yosemite boundary...")
